@@ -13,7 +13,7 @@ export function getContactEmailConfig(): ContactEmailConfig | null {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) return null;
 
-  const fromEmail = process.env.RESEND_FROM_EMAIL?.trim() || "onboarding@resend.dev";
+  const fromEmail = process.env.RESEND_FROM_EMAIL?.trim() || "contacto@felipeburgos.org";
   const toEmail =
     process.env.CONTACT_TO_EMAIL?.trim() ||
     process.env.VITE_CONTACT_EMAIL?.trim() ||

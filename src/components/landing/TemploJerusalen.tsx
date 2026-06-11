@@ -1,9 +1,12 @@
 import { motion } from "motion/react";
+import { useMemo } from "react";
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import jerusalemIcon from "@/assets/JERUSALEM_ICON.svg";
+import { getContactConfig } from "@/lib/contact.config";
 import { Section } from "./Section";
 
 export function TemploJerusalen() {
+  const contact = useMemo(() => getContactConfig(), []);
   return (
     <Section id="templo" index="06" eyebrow="Templo Jerusalem">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -56,10 +59,10 @@ export function TemploJerusalen() {
                 <p className="text-fib-8 leading-none text-muted-foreground">Correo</p>
               </div>
               <a
-                href="mailto:Felipeministry@gmail.com"
+                href={`mailto:${contact.email}`}
                 className="block pl-8 font-display text-fib-21 break-all transition-colors hover:text-primary"
               >
-                Felipeministry@gmail.com
+                {contact.email}
               </a>
             </li>
             <li className="space-y-2">
@@ -68,10 +71,10 @@ export function TemploJerusalen() {
                 <p className="text-fib-8 leading-none text-muted-foreground">Teléfono</p>
               </div>
               <a
-                href="tel:9566204546"
+                href={contact.phoneHref}
                 className="block pl-8 font-display text-fib-21 transition-colors hover:text-primary"
               >
-                956 620 4546
+                {contact.phone}
               </a>
             </li>
           </ul>
